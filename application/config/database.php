@@ -78,7 +78,7 @@ if ($config_db == 1) {
 	$hostname = 'localhost';
 	$username = 'root';
 	$password = '';
-	$database = 'db_hiv';
+	$database = 'db_pesantren';
 } elseif ($config_db == 2) {
 	$hostname = 'localhost';
 	$username = '';
