@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------
@@ -73,12 +73,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $active_group = 'default';
 $query_builder = TRUE;
 
+$config_db  = 1; // 1 = localhost, 2 = server
+if ($config_db == 1) {
+	$hostname = 'localhost';
+	$username = 'root';
+	$password = '';
+	$database = 'db_hiv';
+} elseif ($config_db == 2) {
+	$hostname = 'localhost';
+	$username = '';
+	$password = '';
+	$database = '';
+}
+
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => '',
-	'password' => '',
-	'database' => '',
+	'hostname' => $hostname,
+	'username' => $username,
+	'password' => $password,
+	'database' => $database,
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
