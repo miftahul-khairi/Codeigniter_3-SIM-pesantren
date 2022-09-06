@@ -35,8 +35,8 @@
 
       <div class="navbar-brand text-center text-lg-left">
         <a href="<?= site_url() ?>" class="d-inline-block">
-          <img src="<?= config_item('base_url') ?>asset\logo\Free_Sample_By_Wix.jpg" class="d-none d-sm-block" alt="HIV/AIDS" style="width:50px;height:40px;border-radius: 50px;">
-          <img src="<?= config_item('base_url') ?>asset\logo\Free_Sample_By_Wix.jpg" class="d-sm-none" alt="HIV/AIDS">
+          <img src="<?= config_item('base_url') ?>asset\logo\logaster.png" class="d-none d-sm-block" alt="Logo SIMP" style="width:120px;height:50px;border-radius: 30px;">
+          <img src="<?= config_item('base_url') ?>asset\logo\logaster.png" class="d-sm-none" alt="Logo SIMP">
         </a>
       </div>
 
@@ -158,23 +158,23 @@
                 <div class="text-uppercase font-size-xs line-height-xs"></div> <i class="icon-menu" title="Tables"></i>
               </li>
               <li class="nav-item nav-item-submenu">
-                <a href="#" class="nav-link"><i class="icon-map"></i> <span>Data Master</span>
+                <a href="#" class="nav-link"><i class="icon-map"></i> <span>?</span>
                 </a>
-                <ul class="nav nav-group-sub <?= $url_1 == "kabupatens" ? "active" : ""; ?>" data-submenu-title="Responsive tables">
-                  <li class="nav-item"><a href="<?= site_url('kabupatens'); ?>" class="nav-link"><i class="icon-arrow-right6"></i>Kabupaten</a></li>
+                <ul class="nav nav-group-sub <?= $url_1 == "#" ? "active" : ""; ?>" data-submenu-title="Responsive tables">
+                  <li class="nav-item"><a href="<?= site_url('#'); ?>" class="nav-link"><i class="icon-arrow-right6"></i>?</a></li>
                 </ul>
-                <ul class="nav nav-group-sub <?= $url_1 == "kecamatans" ? "active" : ""; ?>" data-submenu-title="Responsive tables">
-                  <li class="nav-item <?= site_url('kecamatans'); ?>"><a href="<?= site_url('kecamatans'); ?>" class="nav-link"><i class="icon-arrow-right6"></i>Kecamatan</a></li>
+                <ul class="nav nav-group-sub <?= $url_1 == "#" ? "active" : ""; ?>" data-submenu-title="Responsive tables">
+                  <li class="nav-item <?= site_url('#'); ?>"><a href="<?= site_url('#'); ?>" class="nav-link"><i class="icon-arrow-right6"></i>?</a></li>
                 </ul>
-                <ul class="nav nav-group-sub <?= $url_1 == "desas" ? "active" : ""; ?>" data-submenu-title="Responsive tables">
-                  <li class="nav-item <?= site_url('desas'); ?>"><a href="<?= site_url('desas'); ?>" class="nav-link"><i class="icon-arrow-right6"></i>Desa</a></li>
+                <ul class="nav nav-group-sub <?= $url_1 == "#" ? "active" : ""; ?>" data-submenu-title="Responsive tables">
+                  <li class="nav-item <?= site_url('#'); ?>"><a href="<?= site_url('#'); ?>" class="nav-link"><i class="icon-arrow-right6"></i>?</a></li>
                 </ul>
               </li>
-              <li class="nav-item nav-item-submenu <?= $url_1 == "koordinats" ? "active" : ""; ?>">
-                <a href="#" class="nav-link"><i class="icon-location4"></i> <span>Koordinat</span>
+              <li class="nav-item nav-item-submenu <?= $url_1 == "#" ? "active" : ""; ?>">
+                <a href="#" class="nav-link"><i class="icon-location4"></i> <span>?</span>
                 </a>
                 <ul class="nav nav-group-sub" data-submenu-title="Responsive tables">
-                  <li class="nav-item <?= site_url('koordinats'); ?>"><a href="<?= site_url('koordinats'); ?>" class="nav-link"><i class="icon-arrow-right6"></i>Koordinat Kasus</a></li>
+                  <li class="nav-item <?= site_url('#'); ?>"><a href="<?= site_url('#'); ?>" class="nav-link"><i class="icon-arrow-right6"></i>?</a></li>
                 </ul>
               </li>
               <li class="nav-item nav-item-submenu <?= $url_1 == "admins" ? "active" : ""; ?>">
