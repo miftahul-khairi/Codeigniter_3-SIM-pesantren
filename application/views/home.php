@@ -83,17 +83,6 @@
                 </div>
               </div>
 
-              <!-- Basic map -->
-              <div class="card">
-                <div class="card-header">
-                  <h5 class="card-title">Maps</h5>
-                </div>
-                <div class="card-body">
-                  <div class="map-container" id="map_basic"></div>
-                </div>
-              </div>
-              <!-- /basic map -->
-
             </div>
             <div class="chart position-relative" id="traffic-sources"></div>
           </div>
