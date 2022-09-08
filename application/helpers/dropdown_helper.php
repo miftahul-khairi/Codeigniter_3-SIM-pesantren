@@ -4,22 +4,22 @@ if (!defined('BASEPATH')) {
     exit('No direct script access allowed');
 }
 
-if (!function_exists('dropdown_jabatan')) {
+if (!function_exists('dropdown_pesantren')) {
 
-    function dropdown_jabatan()
+    function dropdown_pesantren()
     {
         $CI = &get_instance();
         $CI->load->database();
         ## Menampilkan data
         $CI->db->select('*');
-        $CI->db->from('jabatan');
+        $CI->db->from('pesantren');
         $CI->db->order_by('id', 'asc');
         $hasil = $CI->db->get();
 
-        $arr_data[''] = "== Pilih Jabatan ==";
+        $arr_data[''] = "== Pilih Pesantren ==";
         if ($hasil->num_rows() > 0) {
             foreach ($hasil->result_array() as $key => $val) {
-                $arr_data[$val['id']] = $val['nama'];
+                $arr_data[$val['id']] = $val['namap'];
             }
         }
         return $arr_data;
