@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title><?= $title; ?></title>
-    <link rel="icon" type="image/x-icon" href="<?= config_item('base_url') ?>template\global_assets\images\logo_icon_dark.png" />
+    <link rel="icon" type="image/x-icon" href="<?= config_item('base_url') ?>asset\logo\logaster.png" />
 
     <!-- Global stylesheets -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
@@ -49,7 +49,7 @@
         <ul class="navbar-nav flex-row">
 
           <li class="nav-item">
-            <a href="#" class="navbar-nav-link navbar-nav-link-toggler">
+            <a href="<?= site_url('logins/logout'); ?>" class="navbar-nav-link navbar-nav-link-toggler">
               <i class="icon-switch2"></i>
             </a>
           </li>
@@ -66,16 +66,24 @@
       <div class="sidebar sidebar-light sidebar-main sidebar-expand-lg">
 
         <!-- Sidebar content -->
-        <div class="sidebar-content">
+        <div class="sidebar-content  bg-info">
 
           <!-- User menu -->
           <div class="sidebar-section">
             <div class="sidebar-user-material">
-              <div class="sidebar-section-body">
+              <div class="sidebar-section-body bg-info">
                 <div class="d-flex">
                   <div class="flex-1">
                   </div>
-                  <a href="#" class="flex-1 text-center"><img src="<?= config_item('base_url') ?>template/global_assets/images/placeholders/placeholder.jpg" class="img-fluid rounded-circle shadow-sm" width="80" height="80" alt=""></a>
+                  <?php if ($this->session->userdata('gambar') == 'no-image.png') { ?>
+                  <a href="#" class="flex-1 text-center">
+                    <img src="<?= config_item('base_url') ?>asset\profile.png" class="img-fluid rounded-circle shadow-sm" width="80" height="80" alt="profile">
+                  </a>
+                  <?php } else { ?>
+                  <a href="#" class="flex-1 text-center">
+                    <img src="<?= config_item('base_url') ?>asset/Gadmin/<?= $this->session->userdata('gambar') ?>" class="user-image" alt="User Image">
+                  </a>
+                  <?php } ?>
                   <div class="flex-1 text-right">
                     <button type="button" class="btn btn-outline-light border-transparent btn-icon rounded-pill btn-sm sidebar-control sidebar-main-resize d-none d-lg-inline-flex">
                       <i class="icon-transmission"></i>
@@ -88,13 +96,13 @@
                 </div>
 
                 <div class="text-center">
-                  <h6 class="mb-0 text-white text-shadow-dark mt-3">Victoria Baker</h6>
-                  <span class="font-size-sm text-white text-shadow-dark">Santa Ana, CA</span>
+                  <h6 class="mb-0 text-white text-shadow-dark mt-3 text-uppercase"><?= $this->session->userdata('username') ?></h6>
+                  <span class="font-size-sm text-white text-shadow-dark"></span>
                 </div>
               </div>
 
               <div class="sidebar-user-material-footer">
-                <a href="#user-nav" class="d-flex justify-content-between align-items-center text-shadow-dark dropdown-toggle" data-toggle="collapse"><span>My account</span></a>
+                <a href="#user-nav" class="d-flex justify-content-between align-items-center text-shadow-dark dropdown-toggle bg-info" data-toggle="collapse"><span>Akun Saya</span></a>
               </div>
             </div>
 
@@ -104,19 +112,6 @@
                   <a href="#" class="nav-link">
                     <i class="icon-user-plus"></i>
                     <span>My profile</span>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <i class="icon-coins"></i>
-                    <span>My balance</span>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <i class="icon-comment-discussion"></i>
-                    <span>Messages</span>
-                    <span class="badge badge-teal badge-pill align-self-center ml-auto">58</span>
                   </a>
                 </li>
                 <li class="nav-item">
@@ -143,10 +138,10 @@
 
               <!-- Main -->
               <li class="nav-item-header">
-                <div class="text-uppercase font-size-xs line-height-xs mt-1">Main</div> <i class="icon-menu" title="Main"></i>
+                <div class="text-uppercase font-size-xs line-height-xs mt-1"></div> <i class="icon-menu" title="Main"></i>
               </li>
               <li class="nav-item">
-                <a href="<?= site_url('utama_admins'); ?>" class="nav-link <?= $url_1 == "" ? "active" : ""; ?>">
+                <a href="<?= site_url('utamas'); ?>" class="nav-link <?= $url_1 == "" ? "active" : ""; ?>">
                   <i class="icon-home4"></i>
                   <span>
                     Dashboard
@@ -158,27 +153,28 @@
                 <div class="text-uppercase font-size-xs line-height-xs"></div> <i class="icon-menu" title="Tables"></i>
               </li>
               <li class="nav-item nav-item-submenu">
-                <a href="#" class="nav-link"><i class="icon-map"></i> <span>?</span>
+                <a href="#" class="nav-link"><i class="icon-home9"></i> <span>Pesantren</span>
                 </a>
                 <ul class="nav nav-group-sub <?= $url_1 == "#" ? "active" : ""; ?>" data-submenu-title="Responsive tables">
-                  <li class="nav-item"><a href="<?= site_url('#'); ?>" class="nav-link"><i class="icon-arrow-right6"></i>?</a></li>
-                </ul>
-                <ul class="nav nav-group-sub <?= $url_1 == "#" ? "active" : ""; ?>" data-submenu-title="Responsive tables">
-                  <li class="nav-item <?= site_url('#'); ?>"><a href="<?= site_url('#'); ?>" class="nav-link"><i class="icon-arrow-right6"></i>?</a></li>
-                </ul>
-                <ul class="nav nav-group-sub <?= $url_1 == "#" ? "active" : ""; ?>" data-submenu-title="Responsive tables">
-                  <li class="nav-item <?= site_url('#'); ?>"><a href="<?= site_url('#'); ?>" class="nav-link"><i class="icon-arrow-right6"></i>?</a></li>
+                  <li class="nav-item"><a href="<?= site_url('pesantrens'); ?>" class="nav-link"><i class="icon-arrow-right6"></i>Management Data Pesantren</a></li>
                 </ul>
               </li>
               <li class="nav-item nav-item-submenu <?= $url_1 == "#" ? "active" : ""; ?>">
-                <a href="#" class="nav-link"><i class="icon-location4"></i> <span>?</span>
+                <a href="#" class="nav-link"><i class="icon-people"></i> <span>Admin Pesantren</span>
                 </a>
                 <ul class="nav nav-group-sub" data-submenu-title="Responsive tables">
-                  <li class="nav-item <?= site_url('#'); ?>"><a href="<?= site_url('#'); ?>" class="nav-link"><i class="icon-arrow-right6"></i>?</a></li>
+                  <li class="nav-item <?= site_url('#'); ?>"><a href="<?= site_url('admin_pesantrens'); ?>" class="nav-link"><i class="icon-arrow-right6"></i>Data Admin Pesantren</a></li>
+                </ul>
+              </li>
+              <li class="nav-item nav-item-submenu <?= $url_1 == "#" ? "active" : ""; ?>">
+                <a href="#" class="nav-link"><i class="icon-people"></i> <span>Santri</span>
+                </a>
+                <ul class="nav nav-group-sub" data-submenu-title="Responsive tables">
+                  <li class="nav-item <?= site_url('#'); ?>"><a href="<?= site_url('santris'); ?>" class="nav-link"><i class="icon-arrow-right6"></i> Data Santri</a></li>
                 </ul>
               </li>
               <li class="nav-item nav-item-submenu <?= $url_1 == "admins" ? "active" : ""; ?>">
-                <a href="#" class="nav-link"><i class="icon-people"></i> <span>Admin Management</span>
+                <a href="#" class="nav-link"><i class="icon-crown"></i> <span>Admin Management</span>
                 </a>
                 <ul class="nav nav-group-sub" data-submenu-title="Responsive tables">
                   <li class="nav-item <?= site_url('admins'); ?>"><a href="<?= site_url('admins'); ?>" class="nav-link"><i class="icon-arrow-right6"></i>List Data Admin</a></li>
