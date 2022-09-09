@@ -11,6 +11,7 @@
     <!-- Global stylesheets -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
     <link href="<?= config_item('base_url') ?>template/global_assets/css/icons/icomoon/styles.min.css" rel="stylesheet" type="text/css">
+    <link href="<?= config_item('base_url') ?>template\global_assets\css\icons\fontawesome\styles.min.css" rel="stylesheet" type="text/css">
     <link href="<?= config_item('base_url') ?>template/layout_1/ltr/material/full/assets/css/all.min.css" rel="stylesheet" type="text/css">
     <!-- /global stylesheets -->
     <link rel="stylesheet" href="<?= config_item('base_url') ?>asset/select2-master/dist/css/select2.min.css" />
@@ -171,6 +172,13 @@
                 </a>
                 <ul class="nav nav-group-sub" data-submenu-title="Responsive tables">
                   <li class="nav-item <?= site_url('#'); ?>"><a href="<?= site_url('santris'); ?>" class="nav-link"><i class="icon-arrow-right6"></i> Data Santri</a></li>
+                </ul>
+              </li>
+              <li class="nav-item nav-item-submenu <?= $url_1 == "#" ? "active" : ""; ?>">
+                <a href="#" class="nav-link"><i class="fa fa-award"></i> <span>Santri Berprestasi</span>
+                </a>
+                <ul class="nav nav-group-sub" data-submenu-title="Responsive tables">
+                  <li class="nav-item <?= site_url('#'); ?>"><a href="<?= site_url('santris'); ?>" class="nav-link"><i class="icon-arrow-right6"></i> Data Santri Berprestasi</a></li>
                 </ul>
               </li>
               <li class="nav-item nav-item-submenu <?= $url_1 == "admins" ? "active" : ""; ?>">
