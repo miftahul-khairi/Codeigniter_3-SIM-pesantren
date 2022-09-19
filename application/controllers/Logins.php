@@ -32,6 +32,7 @@ class Logins extends CI_Controller
       foreach ($hasil->result() as $val) {
         $sess_data['username'] = $val->username;
         $sess_data['adminid'] = $val->id;
+        $sess_data['pesantrenid'] = $val->pesantrenid;
         $sess_data['level'] = $val->level;
         $sess_data['nama'] = $val->nama;
         $sess_data['email'] = $val->email;
