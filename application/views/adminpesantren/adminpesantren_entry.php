@@ -44,7 +44,7 @@
               <legend class="text-uppercase font-size-sm font-weight-bold border-bottom"></legend>
               <input type="hidden" name="adminid" value="<?= $adminid ?>">
               <div class="form-group row">
-                <label class="col-form-label col-lg-2">Nama Pesantren</label>
+                <label class="col-form-label col-lg-2">Pilih Pesantren</label>
                 <div class="col-lg-10">
                   <?= form_dropdown('pesantrenid', $dropdown_pesantren, $pesantrenid, 'id="pesantrenid" class="form-control" required="required"'); ?>
                 </div>
