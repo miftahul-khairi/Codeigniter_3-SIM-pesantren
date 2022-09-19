@@ -8,7 +8,7 @@
   </div>
 
   <div class="navbar-collapse collapse" id="navbar-footer">
-    <span class="navbar-text">&copy; 2021 - 2022. <a href="#">Tiga Berlian Code</a></span>
+    <span class="navbar-text">&copy; 2021 - 2022. <a href="#">|</a></span>
   </div>
 </div>
 <!-- /footer -->
