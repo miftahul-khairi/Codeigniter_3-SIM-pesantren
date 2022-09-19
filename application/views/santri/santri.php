@@ -37,7 +37,7 @@
       <div class="card">
         <?php if ($this->session->userdata('level') == 'adminpesantren') { ?>
         <div class="card-header">
-          <a href="<?= site_url('kabupatens/entry'); ?>" class="btn btn-success">Tambah Data</a>
+          <a href="<?= site_url('santris/entry'); ?>" class="btn btn-success">Tambah Data</a>
         </div>
         <?php } ?>
         <table class="table datatable-responsive">
@@ -48,16 +48,15 @@
               <th>NIS</th>
               <th>Nama Santri</th>
               <th>Tempat Lahir</th>
-              <th>Tanggal Lahir </th>
+              <th style="padding:0 60px;">Tanggal Lahir </th>
               <th>Nomor Hp</th>
               <th>Alamat</th>
               <th>Pas Photo</th>
-              <?php if ($this->session->userdata('level') == 'adminpesantren') { ?>
               <th class="text-center">Action</th>
-              <?php } ?>
             </tr>
           </thead>
           <tbody>
+            <!-- Admin Pesantren -->
             <?php if ($result && count($result) > 0) {
               foreach ($result as $key => $val) {
                 if ($this->session->userdata('adminid') == $val['adminid']) {
@@ -68,18 +67,18 @@
               <td><?= $val['nis']; ?></td>
               <td><?= $val['nama']; ?></td>
               <td><?= $val['tmpLahir']; ?></td>
-              <td><?= $val['tglLahir']; ?></td>
+              <td><?= format_tanggal($val['tglLahir']); ?></td>
               <td><?= $val['nohp']; ?></td>
-              <td><?= $val['alamat']; ?></td>
-              <td><img src="" alt="Pas Photo Santri"></td>
+              <td><?= substr($val['alamat'], 0, 60) ?></td>
+              <td><img src="<?= config_item('base_url') ?>asset/pasphoto/<?= $val['pasPhoto']; ?>" alt="Pas Photo Santri" style="width: 70px;height: 70px;border-radius: 10px;"></td>
               <?php if ($this->session->userdata('level') == 'adminpesantren') { ?>
               <td class="text-center">
                 <div class="list-icons">
                   <div class="dropdown">
                     <a href="#" class="list-icon-item" data-toggle="dropdown"><i class="icon-menu9"></i></a>
                     <div class="dropdown-menu dropdown-menu-right">
-                      <a href="<?= site_url('kabupatens/entry/' . $val['id']); ?>" class="dropdown-item"><i class="icon-pencil"></i>Edit Data</a>
-                      <a href="<?= site_url('kabupatens/delete/' . $val['id']); ?>" class="dropdown-item" onclick="return confirm('Yakin ingin menghapus data ini...?')"><i class="icon-trash"></i>Delete</a>
+                      <a href="<?= site_url('santris/entry/' . $val['id']); ?>" class="dropdown-item"><i class="icon-pencil"></i>Edit Data</a>
+                      <a href="<?= site_url('santris/delete/' . $val['id']); ?>" class="dropdown-item" onclick="return confirm('Yakin ingin menghapus data ini...?')"><i class="icon-trash"></i>Delete</a>
                     </div>
                   </div>
                 </div>
@@ -89,6 +88,7 @@
             <?php }
               }
             }  ?>
+            <!-- Admin -->
             <?php if ($result && count($result) > 0) {
               foreach ($result as $key => $val) {
                 if ($this->session->userdata('level') == 'admin') {
@@ -99,21 +99,13 @@
               <td><?= $val['nis']; ?></td>
               <td><?= $val['nama']; ?></td>
               <td><?= $val['tmpLahir']; ?></td>
-              <td><?= $val['tglLahir']; ?></td>
+              <td><?= format_tanggal($val['tglLahir']); ?></td>
               <td><?= $val['nohp']; ?></td>
-              <td><?= $val['alamat']; ?></td>
+              <td><?= substr($val['alamat'], 0, 60) ?>
               <td><img src="" alt="Pas Photo Santri"></td>
-              <?php if ($this->session->userdata('level') == 'adminpesantren') { ?>
+              <?php if ($this->session->userdata('level') == 'admin') { ?>
               <td class="text-center">
-                <div class="list-icons">
-                  <div class="dropdown">
-                    <a href="#" class="list-icon-item" data-toggle="dropdown"><i class="icon-menu9"></i></a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                      <a href="<?= site_url('kabupatens/entry/' . $val['id']); ?>" class="dropdown-item"><i class="icon-pencil"></i>Edit Data</a>
-                      <a href="<?= site_url('kabupatens/delete/' . $val['id']); ?>" class="dropdown-item" onclick="return confirm('Yakin ingin menghapus data ini...?')"><i class="icon-trash"></i>Delete</a>
-                    </div>
-                  </div>
-                </div>
+                <a href="<?= site_url('santris/detail_santri/' . $val['id']); ?>" class="btn btn-light">Lihat <i class="icon-eye ml-2"></i></a>
               </td>
               <?php } ?>
             </tr>
