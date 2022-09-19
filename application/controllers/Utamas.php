@@ -19,6 +19,7 @@ class Utamas extends CI_Controller
       $this->template->view('template', 'homeadmin', $data);
     } else {
 
+      $data['title'] = "Admin Pesantren";
       $adminid            = $this->session->userdata('adminid');
       $result         = $this->utama->get_data($adminid);
       $data['result'] = $result;
