@@ -179,7 +179,7 @@ class Santris extends CI_Controller
   // public function delete($id)
   public function delete($id)
   {
-    if ($id == '1') {
+    if ($id == '0') {
       $this->session->set_flashdata('pesan', '<div class="form-group"><div class="col-sm-12 alert alert-danger" role="alert">Admin tidak  bisa di HAPUS!!!</div></div>');
       echo "<script>window.history.go(-1);</script>";
     } else {
