@@ -37,7 +37,7 @@
       <div class="card">
         <?php if ($this->session->userdata('level') == 'adminpesantren') { ?>
         <div class="card-header">
-          <a href="<?= site_url('#'); ?>" class="btn btn-success">Tambah Data</a>
+          <a href="<?= site_url('kegiatans/entry/'); ?>" class="btn btn-success">Tambah Data</a>
         </div>
         <?php } ?>
         <table class="table datatable-responsive">
@@ -71,8 +71,8 @@
                   <div class="dropdown">
                     <a href="#" class="list-icon-item" data-toggle="dropdown"><i class="icon-menu9"></i></a>
                     <div class="dropdown-menu dropdown-menu-right">
-                      <a href="<?= site_url('#' . $val['id']); ?>" class="dropdown-item"><i class="icon-pencil"></i>Edit Data</a>
-                      <a href="<?= site_url('#' . $val['id']); ?>" class="dropdown-item" onclick="return confirm('Yakin ingin menghapus data ini...?')"><i class="icon-trash"></i>Delete</a>
+                      <a href="<?= site_url('kegiatans/entry/' . $val['id']); ?>" class="dropdown-item"><i class="icon-pencil"></i>Edit Data</a>
+                      <a href="<?= site_url('kegiatans/delete/' . $val['id']); ?>" class="dropdown-item" onclick="return confirm('Yakin ingin menghapus data ini...?')"><i class="icon-trash"></i>Delete</a>
                     </div>
                   </div>
                 </div>
