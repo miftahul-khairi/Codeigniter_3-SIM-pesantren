@@ -63,7 +63,7 @@
               <?php } ?>
               <div class="dropdown-menu dropdown-menu-right">
                 <a href="#" class="dropdown-item"><i class="icon-profile"></i>Akun Saya</a>
-                <a href="#" class="dropdown-item"><i class="icon-switch"></i>Log out</a>
+                <a href="<?= site_url('logins/logout') ?>" class="dropdown-item"><i class="icon-switch"></i>Log out</a>
               </div>
             </div>
           </li>
@@ -307,7 +307,9 @@
     <script src="<?= config_item('base_url') ?>asset/select2-master/dist/js/select2.min.js"></script>
     <!-- datepicker -->
     <script src="<?= config_item('base_url') ?>template\global_assets\dist\js\bootstrap-datepicker.min.js"></script>
-
+    <!-- CKeditor -->
+    <script src="<?= config_item('base_url') ?>template/global_assets/js/plugins/editors/ckeditor/ckeditor.js"></script>
+    <script src="<?= config_item('base_url') ?>template/global_assets/js/demo_pages/editor_ckeditor_material.js"></script>
     <script>
     var base_url = "<?= config_item('base_url') ?>";
     $(function() {
