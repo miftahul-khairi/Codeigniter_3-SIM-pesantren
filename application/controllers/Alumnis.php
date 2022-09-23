@@ -87,6 +87,7 @@ class Alumnis extends CI_Controller
     $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-styled-left alert-dismissible">
        <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button><span class="font-weight-semibold"></span>Data Berhasil <a href="#" class="alert-link"> Dihapus</a></div>');
     echo "<script>window.history.go(-1);</script>";
+    redirect('alumnis');
   }
 }
 
