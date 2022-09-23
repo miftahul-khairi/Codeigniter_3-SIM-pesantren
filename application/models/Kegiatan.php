@@ -31,6 +31,24 @@ class Kegiatan extends CI_Model
     }
   }
 
+  public function search_data($tanggal, $id = "")
+  {
+    $this->db->select('kegiatan.*,');
+    $this->db->from('kegiatan');
+    $this->db->or_like('kegiatan.tanggal', $tanggal);
+    if ($id != "") {
+      $this->db->where_not_in('kegiatan.id', $id);
+    }
+
+    $this->db->order_by('kegiatan.id', 'desc');
+    $query = $this->db->get();
+    if ($query->num_rows() > 0) {
+      return $query->result_array();
+    } else {
+      return null;
+    }
+  }
+
   // Ambil Data Detail kegiatan
   public function ambil($where = "")
   {
