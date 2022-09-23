@@ -90,7 +90,7 @@
             </fieldset>
             <div class="text-center">
               <button type="submit" class="btn btn-primary"><?= $tombol; ?><i class="icon-paperplane ml-2"></i></button>
-              <a href="<?= site_url('santris'); ?>" class="btn btn-danger">Cancel <i class="icon-icon-cancel-square"></i></a>
+              <a href="<?= site_url('kegiatans'); ?>" class="btn btn-danger">Cancel <i class="icon-icon-cancel-square"></i></a>
             </div>
           </form>
         </div>
