@@ -49,21 +49,22 @@
                   <?= form_dropdown('santriid', $dropdown_santri, $santriid, 'id="santriid" class="form-control" required="required"'); ?>
                 </div>
               </div>
-              <div class="form-group row">
+              <div class="form-group form-group-floating row">
                 <label class="col-form-label col-lg-2">Keterangan</label>
                 <div class="col-lg-10">
-                  <textarea name="keterangan" id="keterangan" placeholder="Masukkan Keterangan..." class="form-control" required rows="4" cols="50">
-                  <?= $keterangan; ?>
-                  </textarea>
+                  <div class="position-relative">
+                    <textarea name="keterangan" id="keterangan" placeholder="Masukkan Keterangan..." class="form-control form-control-filled" required> <?= $keterangan; ?></textarea>
+                    <label class="label-floating">Keterangan</label>
+                  </div>
                 </div>
               </div>
-              <div class="form-group row">
+              <div class="form-group form-group-floating row">
                 <label class="col-form-label col-lg-2">Isi</label>
                 <div class="col-lg-10">
-                  <!-- <textarea type="text" name="isi" id="isi" placeholder="Masukkan Isi..." class="form-control" required value="" inputmode="text"> -->
-                  <textarea name="isi" id="isi" placeholder="Masukkan Isi..." class="form-control" required rows="4" cols="50">
-                  <?= $isi; ?>
-                  </textarea>
+                  <div class="position-relative">
+                    <textarea name="isi" id="isi" placeholder="Masukkan Isi..." class="form-control form-control-filled" required><?= $isi; ?></textarea>
+                    <label class="label-floating">Isi</label>
+                  </div>
                 </div>
               </div>
             </fieldset>
