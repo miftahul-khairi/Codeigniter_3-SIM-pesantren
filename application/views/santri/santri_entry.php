@@ -79,12 +79,13 @@
                   <input type="tel" name="nohp" id="nohp" placeholder="Masukkan Nomor HandPhone..." class="form-control" required value="<?= $nohp; ?>">
                 </div>
               </div>
-              <div class="form-group row">
+              <div class="form-group form-group-floating row">
                 <label class="col-form-label col-lg-2">Alamat</label>
                 <div class="col-lg-10">
-                  <textarea name="alamat" id="alamat" placeholder="Masukkan Alamat..." class="form-control" required rows="4" cols="50">
-                  <?= $alamat; ?>
-                  </textarea>
+                  <div class="position-relative">
+                    <textarea name="alamat" id="alamat" placeholder="Masukkan Alamat..." class="form-control form-control-filled" required><?= $alamat; ?></textarea>
+                    <label class="label-floating">Alamat</label>
+                  </div>
                 </div>
               </div>
               <?php if ($pasPhoto) { ?>
