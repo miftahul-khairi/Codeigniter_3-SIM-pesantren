@@ -51,7 +51,6 @@ class Admins extends CI_Controller
   {
     $this->db->trans_start();
     $adminid = $this->input->post('adminid') ? $this->input->post('adminid') : "";
-
     $nama = $this->input->post('nama');
     $alamat = $this->input->post('alamat');
     $email = $this->input->post('email');
