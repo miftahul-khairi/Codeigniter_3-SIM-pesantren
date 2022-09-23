@@ -179,19 +179,14 @@ class Santris extends CI_Controller
   // public function delete($id)
   public function delete($id)
   {
-    if ($id == '0') {
-      $this->session->set_flashdata('pesan', '<div class="form-group"><div class="col-sm-12 alert alert-danger" role="alert">Admin tidak  bisa di HAPUS!!!</div></div>');
-      echo "<script>window.history.go(-1);</script>";
-    } else {
-      $result = $this->santri->get_data($id);
-      $this->global_model->delete('santri', array('id' => $id));
-      unlink('./asset/pasphoto/' . $result['pasPhoto']);
-      echo "<script>window.history.go(-1);</script>";
-      // flashdata
-      $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-styled-left alert-dismissible">
+    $result = $this->santri->get_data($id);
+    $this->global_model->delete('santri', array('id' => $id));
+    unlink('./asset/pasphoto/' . $result['pasPhoto']);
+    echo "<script>window.history.go(-1);</script>";
+    // flashdata
+    $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-styled-left alert-dismissible">
       <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button><span class="font-weight-semibold"></span>Data Berhasil <a href="#" class="alert-link"> Dihapus</a></div>');
-      redirect('santris');
-    }
+    redirect('santris');
   }
 }
 
