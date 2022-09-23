@@ -24,31 +24,69 @@ class Alumnis extends CI_Controller
     $data['detail'] = $this->santri_berprestasi->ambil($id);
 
 
-    $this->template->view('template', 'santriberprestasi/santriberprestasi_detail', $data);
+    $this->template->view('template', 'alumni/alumni_detail', $data);
   }
   public function entry($id = "")
   {
 
     $data['dropdown_santri'] = dropdown_santri();
     if ($id == "") {
-      $data['title']                   = 'Form Input Santri Berprestasi';
-      $data['subtitle']                = 'Form Input <span class="font-weight-semibold">-Santri Berprestasi';
-      $data['santriberprestasiid']     = '';
+      $data['title']                   = 'Form Input Alumni';
+      $data['subtitle']                = 'Form Input <span class="font-weight-semibold">-Alumni';
+      $data['alumniid']                = '';
       $data['santriid']                = '';
-      $data['keterangan']              = '';
-      $data['isi']                     = '';
+      $data['tahunTamat']              = date("Y");
       $data['tombol']                  = 'Tambah';
     } else {
-      $data['title']                   = 'Form Edit Santri Berprestasi';
-      $data['subtitle']                = 'Form Edit <span class="font-weight-semibold">-Santri Berprestasi';
-      $result                          = $this->santri_berprestasi->get_data($id);
-      $data['santriberprestasiid']     = $id;
+      $data['title']                   = 'Form Edit Alumni';
+      $data['subtitle']                = 'Form Edit <span class="font-weight-semibold">-Alumni';
+      $result                          = $this->alumni->get_data($id);
+      $data['alumniid']                = $id;
       $data['santriid']                = $result['santriid'];
-      $data['keterangan']              = $result['keterangan'];
-      $data['isi']                     = $result['isi'];
+      $data['tahunTamat']              = $result['tahunTamat'];
       $data['tombol']                  = 'Edit';
     }
-    $this->template->view('template', 'santriberprestasi/santriberprestasi_entry', $data);
+    $this->template->view('template', 'alumni/alumni_entry', $data);
+  }
+
+  // function preses
+  public function proses()
+  {
+    $this->db->trans_start();
+    $alumniid     = $this->input->post('alumniid') ? $this->input->post('alumniid') : "";
+    $santriid     = $this->input->post('santriid');
+    $pesantrenid  = $this->session->userdata('pesantrenid');
+    $adminid      = $this->session->userdata('adminid');
+    $tahunTamat   = $this->input->post('tahunTamat');
+
+    $return_data = array(
+      'santriid'            => $santriid,
+      'pesantrenid'         => $pesantrenid,
+      'adminid'             => $adminid,
+      'tahunTamat'          => $tahunTamat
+    );
+    if ($alumniid == "") {
+      $this->global_model->insert('alumni', $return_data);
+      $this->db->trans_complete();
+      $this->session->set_flashdata('pesan', '<div class="alert alert-warning alert-styled-left alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
+        <span class="font-weight-semibold">Data</span> Berhasil<a href="#" class="alert-link"> Ditambah</a></div>');
+    } else {
+      $this->global_model->update('alumni', $return_data, array('id' => $alumniid));
+      $this->db->trans_complete();
+      $this->session->set_flashdata('pesan', '<div class="alert alert-warning alert-styled-left alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
+        <span class="font-weight-semibold">Data</span> Berhasil<a href="#" class="alert-link"> Diedit</a></div>');
+    }
+    redirect('alumnis');
+  }
+  // Function Delete
+  public function delete($id)
+  {
+    $this->global_model->delete('alumni', array('id' => $id));
+    $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-styled-left alert-dismissible">
+       <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button><span class="font-weight-semibold"></span>Data Berhasil <a href="#" class="alert-link"> Dihapus</a></div>');
+    echo "<script>window.history.go(-1);</script>";
   }
 }
 
