@@ -28,8 +28,6 @@ class Kegiatans extends CI_Controller
   }
   public function entry($id = "")
   {
-
-
     if ($id == "") {
       $data['title']        = 'Form Input Kegiatan';
       $data['subtitle']     = 'Form Input <span class="font-weight-semibold">-Kegiatan';
@@ -70,14 +68,9 @@ class Kegiatans extends CI_Controller
       'judul'      => $judul,
       'deskripsi'  => $deskripsi,
       'isi'        => $isi,
-      'tanggal'    => $tanggal
+      'tanggal'    => $tanggal,
     );
     if ($kegiatanid == "") {
-      if ($this->kegiatan->search_data($tanggal) > 0) {
-        $this->session->set_flashdata('error' . $tanggal . ' sudah ada harap gunakan tanggal lain');
-        redirect('kegiatans/entry');
-        die();
-      }
       $gambar = null;
       if ($_FILES['gambar']['name'] != "") {
         // Upload Gambar
@@ -128,7 +121,7 @@ class Kegiatans extends CI_Controller
 
       $update_data = array(
         'adminid'    => $adminid,
-        'judul'      => $deskripsi,
+        'judul'      => $judul,
         'deskripsi'  => $deskripsi,
         'isi'        => $isi,
         'tanggal'    => $tanggal
@@ -145,6 +138,18 @@ class Kegiatans extends CI_Controller
       <span class="font-weight-semibold">Data</span> Berhasil<a href="#" class="alert-link">Diedit</a></div>');
       redirect('kegiatans');
     }
+  }
+  // public function delete($id)
+  public function delete($id)
+  {
+    $result = $this->kegiatan->get_data($id);
+    $this->global_model->delete('kegiatan', array('id' => $id));
+    unlink('./asset/gkegiatan/' . $result['gambar']);
+    echo "<script>window.history.go(-1);</script>";
+    // flashdata
+    $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-styled-left alert-dismissible">
+      <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button><span class="font-weight-semibold"></span>Data Berhasil <a href="#" class="alert-link"> Dihapus</a></div>');
+    redirect('kegiatans');
   }
 }
 
