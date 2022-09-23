@@ -216,7 +216,7 @@
                 <a href="#" class="nav-link"><i class="icon-printer"></i> <span>Laporan</span>
                 </a>
                 <ul class="nav nav-group-sub" data-submenu-title="Responsive tables">
-                  <li class="nav-item <?= site_url('#'); ?>"><a href="<?= site_url('#'); ?>" class="nav-link"><i class="icon-arrow-right6"></i> Laporan ?</a></li>
+                  <li class="nav-item <?= site_url('#'); ?>"><a href="<?= site_url('laporankegiatans'); ?>" class="nav-link"><i class="icon-arrow-right6"></i> Laporan Kegiatan</a></li>
                 </ul>
               </li>
               <?php } ?>
@@ -225,7 +225,7 @@
                 <a href="#" class="nav-link"><i class="icon-printer"></i> <span>Laporan Admin</span>
                 </a>
                 <ul class="nav nav-group-sub" data-submenu-title="Responsive tables">
-                  <li class="nav-item <?= site_url('#'); ?>"><a href="<?= site_url('#'); ?>" class="nav-link"><i class="icon-arrow-right6"></i> Laporan ?</a></li>
+                  <li class="nav-item <?= site_url('#'); ?>"><a href="<?= site_url('#'); ?>" class="nav-link"><i class="icon-arrow-right6"></i> Laporan Kegiatan Pesantren</a></li>
                 </ul>
               </li>
               <li class="nav-item nav-item-submenu <?= $url_1 == "admins" ? "active" : ""; ?>">
@@ -352,6 +352,12 @@
         autoclose: true
       });
 
+      $('#bulan').datepicker({
+        format: "yyyy-mm",
+        minViewMode: 1,
+        autoclose: true
+      });
+
       $('#tahun_mulai').datepicker({
         format: "yyyy",
         minViewMode: 2,
@@ -371,6 +377,12 @@
       });
 
       $('#tahun_akhira').datepicker({
+        format: "yyyy",
+        minViewMode: 2,
+        autoclose: true
+      });
+
+      $('#tahun').datepicker({
         format: "yyyy",
         minViewMode: 2,
         autoclose: true
