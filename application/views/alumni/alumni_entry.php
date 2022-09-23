@@ -52,7 +52,7 @@
               <div class="form-group row">
                 <label class="col-form-label col-lg-2">Tahun Tamat</label>
                 <div class="col-lg-10">
-                  <input type="number" class="form-control" name="tahunTamat" id="tahunTamat" required value="<?= format_tanggal_t($tahunTamat); ?>" />
+                  <input type="number" class="form-control" name="tahunTamat" id="tahun_mulai" required value="<?= format_tanggal_t($tahunTamat); ?>" />
                 </div>
               </div>
             </fieldset>
