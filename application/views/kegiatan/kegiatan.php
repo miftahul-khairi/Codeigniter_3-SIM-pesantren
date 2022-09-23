@@ -64,7 +64,7 @@
               <td><?= substr($val['deskripsi'], 0, 40) ?></td>
               <td><?= substr($val['isi'], 0, 40) ?></td>
               <td><?= format_tanggal($val['tanggal']); ?></td>
-              <td><img src="" alt="Gambar Kegiatan"></td>
+              <td><img src="<?= config_item('base_url') ?>asset/gkegiatan/<?= $val['gambar']; ?>" alt="Gambar Kegiatan" style="width: 70px;height: 70px;border-radius: 10px;"></td>
               <?php if ($this->session->userdata('level') == 'adminpesantren') { ?>
               <td class="text-center">
                 <div class="list-icons">
