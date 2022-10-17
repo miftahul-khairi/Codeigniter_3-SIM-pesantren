@@ -102,11 +102,12 @@
               <td><?= format_tanggal($val['tglLahir']); ?></td>
               <td><?= $val['nohp']; ?></td>
               <td><?= substr($val['alamat'], 0, 60) ?>
-              <td><img src="" alt="Pas Photo Santri"></td>
+              <td><img src="<?= config_item('base_url') ?>asset/pasphoto/<?= $val['pasPhoto']; ?>" alt="Pas Photo Santri" style="width: 70px;height: 70px;border-radius: 10px;"></td>
               <?php if ($this->session->userdata('level') == 'admin') { ?>
-              <td class="text-center">
+              <!-- <td class="text-center">
                 <a href="<?= site_url('santris/detail_santri/' . $val['id']); ?>" class="btn btn-light">Lihat <i class="icon-eye ml-2"></i></a>
-              </td>
+              </td> -->
+              <td><button type="button" class="btn btn-light" data-toggle="modal" data-target="#modal_default<?= $val['id'] ?>">Lihat <i class="icon-eye ml-2"></i></button></td>
               <?php } ?>
             </tr>
             <?php
@@ -125,3 +126,49 @@
   </div>
   <!-- /Inner Content -->
 </div>
+<!-- Basic modal -->
+<?php if ($result && count($result) > 0) {
+  foreach ($result as $key => $val) { ?>
+<div id="modal_default<?= $val['id'] ?>" class="modal fade" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Detail Data Santri</h5>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <h6 class="font-weight-semibold"></h6>
+        <p><img src="<?= config_item('base_url') ?>asset/pasphoto/<?= $val['pasPhoto']; ?>" alt="Pas Photo Santri" style="width: 70px;height: 70px;border-radius: 10px;"></p>
+        <hr>
+        <h6 class="font-weight-semibold">Nama Pesantren</h6>
+        <p><?= $val['namapesantren']; ?></p>
+        <hr>
+
+        <h6 class="font-weight-semibold">Nomor Induk Santri(NIS)</h6>
+        <p><?= $val['nis']; ?></p>
+
+        <hr>
+
+        <h6 class="font-weight-semibold">Nama Santri</h6>
+        <p><?= $val['nama']; ?></p>
+        <hr>
+
+        <h6 class="font-weight-semibold">Tempat Lahir</h6>
+        <p><?= $val['tmpLahir']; ?></p>
+        <hr>
+
+        <h6 class="font-weight-semibold">Tanggal Lahir</h6>
+        <p><?= format_tanggal($val['tglLahir']); ?></p>
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-link" data-dismiss="modal">Tutup</button>
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+<?php }
+} ?>
+<!-- /basic modal -->
