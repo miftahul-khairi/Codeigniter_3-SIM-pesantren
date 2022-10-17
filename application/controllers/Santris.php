@@ -33,7 +33,7 @@ class Santris extends CI_Controller
     $data['pasPhoto']       = config_item('base_url') . "asset/pasphoto/" . $result['pasPhoto'];
 
 
-    $this->template->view('template', 'santri/santri_detail', $data);
+    // $this->template->view('template', 'santri/santri_detail', $data);
   }
 
   public function entry($id = "")
